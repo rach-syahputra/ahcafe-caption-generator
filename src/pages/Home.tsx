@@ -5,6 +5,7 @@ import { generateCaption, generatePrompt } from '../utils/utils'
 import Caption from '../components/Caption'
 import { GenerateCaptionButton } from '../components/Button'
 import Input from '../components/Input'
+import Header from '../components/Header'
 
 const Home = () => {
   const [caption, setCaption] = useState<string>('')
@@ -47,19 +48,10 @@ const Home = () => {
   }
 
   return (
-    <div className='mx-auto flex min-h-screen w-full max-w-screen-md flex-col items-center gap-4 p-4 py-10 text-center md:py-20'>
-      <div className='flex flex-col gap-2'>
-        <h1 className='text-2xl font-bold max-xs:flex max-xs:flex-col md:text-3xl'>
-          <span className='text-primary'>Adam & Hawa Cafe </span>
-          Caption Generator
-        </h1>
-        <p className='text-sm md:text-base'>
-          Buat caption Instagram menarik dengan gaya khas Adam & Hawa Cafe
-          secara otomatis.
-        </p>
-      </div>
+    <div className='mx-auto flex min-h-screen w-full max-w-screen-sm flex-col items-center gap-4 p-4 py-10 text-center'>
+      <Header />
 
-      <div className='flex w-full flex-col gap-2'>
+      <div className='flex w-full flex-col gap-4'>
         <Input
           name='theme'
           label='Tema'

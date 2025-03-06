@@ -25,7 +25,7 @@ const Caption = ({ isLoading, caption, error }: CaptionProps) => {
           <LoadingSpinner />
         ) : caption ? (
           <>
-            <p className='text-sm md:text-base'>{caption}</p>
+            <p>{caption}</p>
             <div className='h-0.5 w-full rounded-full bg-gray-200 opacity-85'></div>
             <Copy onClick={handleCopy} />
           </>

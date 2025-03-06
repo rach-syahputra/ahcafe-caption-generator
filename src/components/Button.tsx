@@ -13,7 +13,7 @@ const GenerateCaptionButton = ({
     <button
       type='button'
       onClick={onClick}
-      className='hover:bg-primary-hover flex h-11 w-full items-center justify-center gap-2 rounded-md bg-primary px-4 text-sm font-semibold text-white transition-all duration-300 ease-in-out xs:place-self-end md:text-base'
+      className='flex h-11 w-full items-center justify-center gap-2 rounded-md bg-primary px-4 font-semibold text-white transition-all duration-300 ease-in-out hover:bg-primary-hover xs:place-self-end'
     >
       <img src={wandMagicIcon} alt='wand magic icon' width={16} />
       {children}
