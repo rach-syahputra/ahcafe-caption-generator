@@ -36,7 +36,9 @@ const Input = ({
   return (
     <div className='flex w-full flex-col'>
       <div className='flex w-full flex-col items-start gap-2 overflow-hidden text-left transition-[height] duration-300 ease-in-out'>
-        <label htmlFor={name.toLowerCase()}>{label}</label>
+        <label htmlFor={name.toLowerCase()} className='text-gray-700'>
+          {label}
+        </label>
         <div className='relative w-full'>
           {asTextArea ? (
             <textarea
