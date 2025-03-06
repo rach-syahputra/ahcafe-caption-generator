@@ -48,7 +48,7 @@ const Home = () => {
   }
 
   return (
-    <div className='mx-auto flex min-h-screen w-full max-w-screen-sm flex-col items-center gap-4 p-4 py-10 text-center'>
+    <div className='mx-auto flex min-h-screen w-full max-w-screen-sm flex-col items-center gap-6 p-4 py-10 text-center'>
       <Header />
 
       <div className='flex w-full flex-col gap-4'>
