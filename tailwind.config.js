@@ -4,9 +4,9 @@ export default {
   theme: {
     extend: {
       colors: {
-        primary: '#FF8800',
-        'primary-hover': '#ff961f',
-        'dark-primary': '#222222'
+        primary: '#ffc300',
+        'primary-hover': '#ffd60a',
+        'dark-primary': '#202020'
       },
       screens: {
         xs: '450px'
