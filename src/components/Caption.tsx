@@ -44,7 +44,7 @@ const Copy = ({ onClick }: CopyProps) => {
       className='flex cursor-pointer items-center justify-center gap-2 place-self-end py-1 transition-all duration-300 ease-in-out hover:opacity-80 max-md:scale-95'
     >
       <img src={copyIcon} alt='copy icon' width={16} />
-      <span className='select-none text-sm text-[#222222]'>Copy</span>
+      <span className='select-none text-sm text-dark-primary'>Copy</span>
     </div>
   )
 }

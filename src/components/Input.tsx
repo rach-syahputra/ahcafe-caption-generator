@@ -5,6 +5,7 @@ type InputProps = {
   label: string
   value: string
   onValueChange: (value: string) => void
+  placeholder: string
   asTextArea?: boolean
 }
 
@@ -17,6 +18,7 @@ const Input = ({
   label,
   value,
   onValueChange,
+  placeholder,
   asTextArea
 }: InputProps) => {
   const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
@@ -41,7 +43,7 @@ const Input = ({
               name={name.toLowerCase()}
               rows={3}
               value={value}
-              placeholder='optional'
+              placeholder={placeholder}
               onChange={handleTextAreaChange}
               className='h-full w-full rounded-md border border-gray-400 px-3 py-2 focus-within:border-gray-600 focus-within:outline-none'
             />
@@ -50,7 +52,7 @@ const Input = ({
               name={name.toLowerCase()}
               type='text'
               value={value}
-              placeholder='optional'
+              placeholder={placeholder}
               onChange={handleInputChange}
               className='h-full w-full rounded-md border border-gray-400 px-3 py-2 focus-within:border-gray-600 focus-within:outline-none'
             />

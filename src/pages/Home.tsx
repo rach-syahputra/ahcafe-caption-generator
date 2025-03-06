@@ -57,8 +57,15 @@ const Home = () => {
           label='Tema'
           value={theme}
           onValueChange={setTheme}
+          placeholder='Ramadhan, Kemerdekaan'
         />
-        <Input name='menu' label='Menu' value={menu} onValueChange={setMenu} />
+        <Input
+          name='menu'
+          label='Menu'
+          value={menu}
+          onValueChange={setMenu}
+          placeholder='Kopi Adam, Blue Lagoon, Ayam Geprek'
+        />
       </div>
 
       <GenerateCaptionButton onClick={getCaption}>
