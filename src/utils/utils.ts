@@ -7,17 +7,17 @@ export const generatePrompt = ({ theme, menu }: PromptOptions) => {
   let additionalPrompt: string = ''
 
   if (theme && menu) {
-    additionalPrompt = `Caption harus mempunyai tema ${theme} dan menyertakan kata ${menu}, di mana kata tersebut adalah menu dari Adam & Hawa Cafe.`
+    additionalPrompt = `Caption harus mempunyai tema ${theme} dan menyertakan kata ${menu}, yang merupakan menu dari Adam & Hawa Cafe. Caption boleh menggambarkan suasana yang mewakili tema tersebut jika cocok dan penyampaian yang segar setiap kali caption dibuat. Caption harus menyertakan kata ${menu}, yang merupakan menu dari Adam & Hawa Cafe. Buat caption yang menarik dan menggugah selera.`
   } else if (theme) {
-    additionalPrompt = `Caption harus mempunyai tema ${theme}.`
+    additionalPrompt = `Caption harus mempunyai tema ${theme} dan menyertakan kata ${menu}, yang merupakan menu dari Adam & Hawa Cafe. Caption boleh menggambarkan suasana yang mewakili tema tersebut jika cocok dan penyampaian yang segar setiap kali caption dibuat.`
   } else if (menu) {
-    additionalPrompt = `Caption harus menyertakan kata ${menu}, di mana kata tersebut adalah menu dari Adam & Hawa Cafe.`
+    additionalPrompt = `Caption harus menyertakan kata ${menu}, yang merupakan menu dari Adam & Hawa Cafe. Buat caption yang menarik dan menggugah selera..`
   }
 
   const prompt = `
         Aku adalah seorang content creator untuk sebuah coffee shop bernama Adam & Hawa Cafe. Tugasku adalah membuat konten yang menarik berupa foto dan video yang diunggah di akun Instagram resmi coffee shop ini. Aku mengalami kesulitan dalam menentukan caption yang kreatif dan engaging untuk setiap postingan Instagram setelah selesai membuat konten.
 
-        Bantu aku membuat caption Instagram yang tidak hanya informatif tetapi juga memiliki sentuhan kreatif, unik, dan membangkitkan emosi. Sesuaikan gaya bahasa, panjang kalimat, dan nada penulisan dengan caption-caption yang pernah aku buat sebelumnya, namun tetap menghasilkan sentuhan yang segar, modern, dan mengundang interaksi dari audiens. Respon yang aku harapkan hanya berupa caption tanpa penjelasan tambahan.
+        Bantu aku membuat caption Instagram yang tidak hanya informatif tetapi juga memiliki sentuhan kreatif, unik, dan membangkitkan emosi. Sesuaikan gaya bahasa, panjang kalimat, dan nada penulisan dengan caption-caption yang pernah aku buat sebelumnya, namun tetap menghasilkan sentuhan yang segar, modern, dan mengundang interaksi dari audiens. Gunakan variasi diksi dan struktur kalimat agar setiap caption terasa berbeda dan tidak repetitif. 
 
         Berikut adalah beberapa contoh caption yang pernah aku buat:
         - Jadikan camilan ringan sebagai pilihan terbaik untuk menikmati waktu santaimu.
