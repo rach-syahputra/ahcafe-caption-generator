@@ -1,5 +1,6 @@
 import LoadingSpinner from './LoadingSpinner'
 import copyIcon from '../assets/copy.svg'
+import { forwardRef } from 'react'
 
 type CaptionProps = {
   isLoading: boolean
@@ -11,31 +12,35 @@ type CopyProps = {
   onClick: () => void
 }
 
-const Caption = ({ isLoading, caption, error }: CaptionProps) => {
-  const handleCopy = async () => {
-    await navigator.clipboard.writeText(caption)
-  }
+const Caption = forwardRef<HTMLElement, CaptionProps>(
+  ({ isLoading, caption, error }, ref) => {
+    const handleCopy = async () => {
+      await navigator.clipboard.writeText(caption)
+    }
 
-  return (
-    <div
-      className={`${isLoading || caption ? 'block' : 'hidden'} border-gray-primary flex w-full flex-col rounded-md border`}
-    >
-      <div className='flex flex-col'>
-        {isLoading ? (
-          <LoadingSpinner className='p-3' />
-        ) : caption ? (
-          <>
-            <p className='p-3'>{caption}</p>
-            <Divider />
-            <Copy onClick={handleCopy} />
-          </>
-        ) : (
-          <p className='text-sm text-red-500 md:text-base'>{error}</p>
-        )}
-      </div>
-    </div>
-  )
-}
+    return (
+      <section
+        ref={ref}
+        id='caption'
+        className={`${isLoading || caption ? 'block' : 'hidden'} border-gray-primary flex w-full flex-col rounded-md border`}
+      >
+        <div className='flex flex-col'>
+          {isLoading ? (
+            <LoadingSpinner className='p-3' />
+          ) : caption ? (
+            <>
+              <p className='p-3'>{caption}</p>
+              <Divider />
+              <Copy onClick={handleCopy} />
+            </>
+          ) : (
+            <p className='text-sm text-red-500 md:text-base'>{error}</p>
+          )}
+        </div>
+      </section>
+    )
+  }
+)
 
 const Divider = () => {
   return (

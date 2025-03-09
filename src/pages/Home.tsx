@@ -1,5 +1,5 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
-import { useState } from 'react'
+import { useEffect, useRef, useState } from 'react'
 
 import { generateCaption, generatePrompt } from '../utils/utils'
 import Caption from '../components/Caption'
@@ -8,6 +8,7 @@ import Input from '../components/Input'
 import Header from '../components/Header'
 
 const Home = () => {
+  const captionRef = useRef<HTMLElement | null>(null)
   const [caption, setCaption] = useState<string>('')
   const [isLoading, setIsLoading] = useState<boolean>(false)
   const [errorMessage, setErrorMessage] = useState<string>('')
@@ -47,11 +48,17 @@ const Home = () => {
     }
   }
 
+  useEffect(() => {
+    if (caption && captionRef.current) {
+      captionRef.current.scrollIntoView({ behavior: 'smooth' })
+    }
+  }, [caption])
+
   return (
     <div className='mx-auto flex min-h-screen w-full max-w-screen-sm flex-col gap-6 p-4 pb-20'>
       <Header />
 
-      <div className='flex w-full flex-col gap-4'>
+      <section className='flex w-full flex-col gap-4'>
         <Input
           name='theme'
           label='Tema'
@@ -66,11 +73,16 @@ const Home = () => {
           onValueChange={setMenu}
           placeholder='Kopi Adam, Nasi Goreng, Ayam Geprek'
         />
-      </div>
+      </section>
 
       <GenerateCaptionButton onClick={getCaption} />
 
-      <Caption isLoading={isLoading} caption={caption} error={errorMessage} />
+      <Caption
+        ref={captionRef}
+        isLoading={isLoading}
+        caption={caption}
+        error={errorMessage}
+      />
     </div>
   )
 }
