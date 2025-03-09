@@ -55,34 +55,36 @@ const Home = () => {
   }, [caption])
 
   return (
-    <div className='mx-auto flex min-h-screen w-full max-w-screen-sm flex-col gap-6 p-4 pb-20'>
-      <Header />
+    <div className='flex min-h-screen w-full flex-col justify-between'>
+      <div className='mx-auto flex w-screen max-w-screen-sm flex-col gap-6 p-4 pb-10'>
+        <Header />
 
-      <section className='flex w-full flex-col gap-4'>
-        <Input
-          name='theme'
-          label='Tema'
-          value={theme}
-          onValueChange={setTheme}
-          placeholder='Ramadhan, Olahraga'
+        <section className='flex w-full flex-col gap-4'>
+          <Input
+            name='theme'
+            label='Tema'
+            value={theme}
+            onValueChange={setTheme}
+            placeholder='Ramadhan, Olahraga'
+          />
+          <Input
+            name='menu'
+            label='Menu'
+            value={menu}
+            onValueChange={setMenu}
+            placeholder='Kopi Adam, Nasi Goreng, Ayam Geprek'
+          />
+        </section>
+
+        <GenerateCaptionButton disabled={isLoading} onClick={getCaption} />
+
+        <Caption
+          ref={captionRef}
+          isLoading={isLoading}
+          caption={caption}
+          error={errorMessage}
         />
-        <Input
-          name='menu'
-          label='Menu'
-          value={menu}
-          onValueChange={setMenu}
-          placeholder='Kopi Adam, Nasi Goreng, Ayam Geprek'
-        />
-      </section>
-
-      <GenerateCaptionButton onClick={getCaption} />
-
-      <Caption
-        ref={captionRef}
-        isLoading={isLoading}
-        caption={caption}
-        error={errorMessage}
-      />
+      </div>
     </div>
   )
 }

@@ -2,6 +2,7 @@ import plusIcon from '../assets/plus.svg'
 import wandMagicIcon from '../assets/wand-magic.svg'
 
 type GenerateCaptionButtonProps = {
+  disabled?: boolean
   onClick: () => void
 }
 
@@ -14,12 +15,16 @@ const OptionButton = () => {
   )
 }
 
-const GenerateCaptionButton = ({ onClick }: GenerateCaptionButtonProps) => {
+const GenerateCaptionButton = ({
+  disabled,
+  onClick
+}: GenerateCaptionButtonProps) => {
   return (
     <button
       type='button'
       onClick={onClick}
-      className='flex h-11 w-full items-center justify-center gap-2 rounded-md bg-dark-primary px-4 font-semibold text-white transition-all duration-300 ease-in-out xs:place-self-end'
+      disabled={disabled}
+      className={`${disabled ? 'bg-gray-primary' : 'bg-dark-primary'} flex h-11 w-full items-center justify-center gap-2 rounded-md px-4 font-semibold text-white transition-all duration-300 ease-in-out xs:place-self-end`}
     >
       <img src={wandMagicIcon} alt='wand magic icon' width={16} />
       Buat Caption
