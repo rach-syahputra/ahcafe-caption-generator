@@ -1,5 +1,5 @@
 import LoadingSpinner from './LoadingSpinner'
-import copyIcon from '../assets/copy-icon.svg'
+import copyIcon from '../assets/copy.svg'
 
 type CaptionProps = {
   isLoading: boolean
@@ -18,15 +18,15 @@ const Caption = ({ isLoading, caption, error }: CaptionProps) => {
 
   return (
     <div
-      className={`${isLoading || caption ? 'block' : 'hidden'} flex w-full flex-col rounded-md bg-gray-100 p-3`}
+      className={`${isLoading || caption ? 'block' : 'hidden'} border-gray-primary flex w-full flex-col rounded-md border`}
     >
-      <div className='flex flex-col gap-3'>
+      <div className='flex flex-col'>
         {isLoading ? (
-          <LoadingSpinner />
+          <LoadingSpinner className='p-3' />
         ) : caption ? (
           <>
-            <p>{caption}</p>
-            <div className='h-0.5 w-full rounded-full bg-gray-200 opacity-85'></div>
+            <p className='p-3'>{caption}</p>
+            <Divider />
             <Copy onClick={handleCopy} />
           </>
         ) : (
@@ -37,14 +37,22 @@ const Caption = ({ isLoading, caption, error }: CaptionProps) => {
   )
 }
 
+const Divider = () => {
+  return (
+    <div className='px-3'>
+      <hr className='border-gray-primary w-full rounded-full opacity-85'></hr>
+    </div>
+  )
+}
+
 const Copy = ({ onClick }: CopyProps) => {
   return (
     <div
       onClick={onClick}
-      className='flex cursor-pointer items-center justify-center gap-2 place-self-end py-1 transition-all duration-300 ease-in-out hover:opacity-80 max-md:scale-95'
+      className='flex h-11 cursor-pointer items-center justify-center gap-2 place-self-end px-3 transition-all duration-300 ease-in-out'
     >
-      <img src={copyIcon} alt='copy icon' width={16} />
-      <span className='select-none text-sm text-dark-primary'>Copy</span>
+      <img src={copyIcon} alt='copy icon' width={15} />
+      <span className='select-none text-sm text-dark-primary'>Salin</span>
     </div>
   )
 }

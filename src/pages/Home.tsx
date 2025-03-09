@@ -48,7 +48,7 @@ const Home = () => {
   }
 
   return (
-    <div className='mx-auto flex min-h-screen w-full max-w-screen-sm flex-col items-center gap-6 p-4 py-10 text-center'>
+    <div className='mx-auto flex min-h-screen w-full max-w-screen-sm flex-col gap-6 p-4 pb-20'>
       <Header />
 
       <div className='flex w-full flex-col gap-4'>
@@ -57,20 +57,18 @@ const Home = () => {
           label='Tema'
           value={theme}
           onValueChange={setTheme}
-          placeholder='Ramadhan, Kemerdekaan'
+          placeholder='Ramadhan, Olahraga'
         />
         <Input
           name='menu'
           label='Menu'
           value={menu}
           onValueChange={setMenu}
-          placeholder='Kopi Adam, Blue Lagoon, Ayam Geprek'
+          placeholder='Kopi Adam, Nasi Goreng, Ayam Geprek'
         />
       </div>
 
-      <GenerateCaptionButton onClick={getCaption}>
-        Buat Caption
-      </GenerateCaptionButton>
+      <GenerateCaptionButton onClick={getCaption} />
 
       <Caption isLoading={isLoading} caption={caption} error={errorMessage} />
     </div>

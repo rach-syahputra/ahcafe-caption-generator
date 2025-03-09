@@ -5,8 +5,8 @@ export default {
     extend: {
       colors: {
         primary: '#ffc300',
-        'primary-hover': '#ffd60a',
-        'dark-primary': '#202020'
+        'dark-primary': '#0A0A0A',
+        'gray-primary': '#71717A'
       },
       screens: {
         xs: '450px'

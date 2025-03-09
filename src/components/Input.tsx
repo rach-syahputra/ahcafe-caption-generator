@@ -35,8 +35,8 @@ const Input = ({
 
   return (
     <div className='flex w-full flex-col'>
-      <div className='flex w-full flex-col items-start gap-2 overflow-hidden text-left transition-[height] duration-300 ease-in-out'>
-        <label htmlFor={name.toLowerCase()} className='text-gray-700'>
+      <div className='flex w-full flex-col items-start gap-1 overflow-hidden text-left transition-[height] duration-300 ease-in-out'>
+        <label htmlFor={name.toLowerCase()} className='text-dark-primary'>
           {label}
         </label>
         <div className='relative w-full'>
@@ -56,7 +56,7 @@ const Input = ({
               value={value}
               placeholder={placeholder}
               onChange={handleInputChange}
-              className='h-full w-full rounded-md border border-gray-400 px-3 py-2 focus-within:border-gray-600 focus-within:outline-none'
+              className='h-11 w-full rounded-md border border-gray-300 px-3 py-2 focus-within:border-gray-500 focus-within:outline-none'
             />
           )}
           {value && !asTextArea && <Clear onClick={handleRemoveInput} />}
@@ -70,7 +70,7 @@ const Clear = ({ onClick }: ClearProps) => {
   return (
     <div
       onClick={onClick}
-      className='absolute right-0 top-0 flex h-9 w-8 cursor-pointer items-center justify-center'
+      className='absolute right-0 top-0 flex h-11 w-10 cursor-pointer items-center justify-center'
     >
       <img src={x} alt='x icon' className='w-3.5' />
     </div>
